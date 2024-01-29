@@ -30,6 +30,41 @@ package net.datastructures;
  * @author Michael H. Goldwasser
  */
 public class SinglyLinkedList<E> implements Cloneable {
+	
+	// Exercise 2 - swapNodes for SinglyLinkedList
+	public void swapNodes(int nodeA, int nodeB) {
+		if (nodeA == nodeB){
+            return;
+        }
+        Node<E> currentA = head;
+        Node<E> temporaryA = null;
+        for (int i = 1; i < nodeA && (currentA != null); i++) {
+            temporaryA = currentA;
+            currentA = currentA.getNext();
+        }
+        Node<E> currentB = head;
+        Node<E> temporaryB = null;
+        for (int i = 1; i < nodeB && (currentB != null); i++) {
+            temporaryB = currentB;
+            currentB = currentB.getNext();
+        }
+        // Swap next nodes of the previous nodes A and B
+        if (temporaryA != null) {
+            temporaryA.setNext(currentB);
+        } else {
+            head = currentB;
+        }
+        if (temporaryB != null) {
+            temporaryB.setNext(currentA);
+        } else {
+            head = currentA;
+        }
+        // Swap next nodes of A and B
+        Node<E> tempNode = currentA.getNext();
+        currentA.setNext(currentB.getNext());
+        currentB.setNext(tempNode);
+    }
+	
   //---------------- nested Node class ----------------
   /**
    * Node of a singly linked list, which stores a reference to its

@@ -30,6 +30,23 @@ package net.datastructures;
  * @author Michael H. Goldwasser
  */
 public class CircularlyLinkedList<E> {
+	
+    // Exercise 3 - clone CircularLinkedList
+	@SuppressWarnings({"unchecked"})
+	public CircularlyLinkedList<E> clone() /* throws CloneNotSupportedException */ {
+		// always use inherited Object.clone() to create the initial copy
+        // CircularlyLinkedList<E> other = (CircularlyLinkedList<E>) super.clone(); // safe cast
+        CircularlyLinkedList<E> other = new CircularlyLinkedList<E> (); // safe cast
+        if (size > 0) { 
+	        Node<E> walk = tail;
+	        do {
+	            walk = walk.getNext();
+	            other.addLast(walk.getElement());
+	        } while (walk != tail);
+        }
+        return other;
+    }
+	
   //---------------- nested Node class ----------------
   /**
    * Singly linked node, which stores a reference to its element and
