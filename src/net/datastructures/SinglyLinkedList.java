@@ -1,3 +1,4 @@
+package net.datastructures;
 /*
  * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
  *
@@ -20,7 +21,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.datastructures;
 
 /**
  * A basic singly linked list implementation.
@@ -71,13 +71,13 @@ public class SinglyLinkedList<E> implements Cloneable {
    * element and to the subsequent node in the list (or null if this
    * is the last node).
    */
-  private static class Node<E> {
+  public static class Node<E> {
 
     /** The element stored at this node */
-    private E element;            // reference to the element stored at this node
+    protected E element;            // reference to the element stored at this node
 
     /** A reference to the subsequent node in the list */
-    private Node<E> next;         // reference to the subsequent node in the list
+    protected Node<E> next;         // reference to the subsequent node in the list
 
     /**
      * Creates a node with the given element and next node.
@@ -113,13 +113,13 @@ public class SinglyLinkedList<E> implements Cloneable {
 
   // instance variables of the SinglyLinkedList
   /** The head node of the list */
-  private Node<E> head = null;               // head node of the list (or null if empty)
+  protected Node<E> head = null;               // head node of the list (or null if empty)
 
   /** The last node of the list */
-  private Node<E> tail = null;               // last node of the list (or null if empty)
+  protected Node<E> tail = null;               // last node of the list (or null if empty)
 
   /** Number of nodes in the list */
-  private int size = 0;                      // number of nodes in the list
+  protected int size = 0;                      // number of nodes in the list
 
   /** Constructs an initially empty list. */
   public SinglyLinkedList() { }              // constructs an initially empty list
